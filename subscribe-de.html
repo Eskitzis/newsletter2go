@@ -189,26 +189,66 @@
     </style>
 </head>
 <body>
-    <form id="nl2go_form" method="post">
-        <input type="text" class="form__input" id="first_name" placeholder="First Name" required="" />
-        <br>
-        <br>
-        <input type="text" class="form__input" id="last_name" placeholder="Last Name" required="" />
-        <br>
-        <br>
-        <input type="text" class="form__input" id="email" placeholder="E-Mail" required="" />
-        <br>
-        <label class="container">Option 1
-            <input type="checkbox" id="checkbox1" value="checkbox1">
-            <span class="checkmark"></span>
-        </label>
-        <label class="container">Option 2
-            <input type="checkbox" id="checkbox2" value="checkbox2">
-            <span class="checkmark"></span>
-        </label>
-        <br>
-            <input type="submit" class="button-17" value="SUBSCRIBE" id="sub">
-    </form>
+    <div id="form">
+        <form id="nl2go_form" method="post">
+            <input type="text" class="form__input" name="first_name" placeholder="First Name" required="" />
+            <br>
+            <br>
+            <input type="text" class="form__input" name="last_name" placeholder="Last Name" required="" />
+            <br>
+            <br>
+            <input type="email" class="form__input" name="email" placeholder="E-Mail" required="" />
+            <br>
+            <label class="container">JDisc Newsletter (quartalsweise)
+                <input type="checkbox" id="checkbox1" value="checkbox1">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">JDisc Release Notes Newsletter (alle 1-2 Wochen)
+                <input type="checkbox" id="checkbox2" value="checkbox2">
+                <span class="checkmark"></span>
+            </label>
+            <br>
+                <input type="submit" class="button-17" value="SUBSCRIBE">
+        </form>
+    </div>
 </body>
+<script id="n2g_script">
+        !function(e,t,n,c,r,a,i){e.Newsletter2GoTrackingObject=r,e[r]=e[r]||function(){(e[r].q=e[r].q||[]).push(arguments)},e[r].l=1*new Date,a=t.createElement(n),
+            i=t.getElementsByTagName(n)[0],a.async=1,a.src=c,i.parentNode.insertBefore(a,i)}
+            (window,document,"script","https://static.newsletter2go.com/utils.js","n2g");
+            n2g('create', 'nug7a48j-cc3n5ro7-rkc');
+    $(function (){
+        $('#nl2go_form').on('submit', function(e){
+            e.preventDefault();
+            var recipient = {
+                email : $('input[name=email]').val(),
+                first_name : $('input[name=first_name]').val(),
+                last_name : $('input[name=last_name]').val()
+            };
+        //Daten an newsletter2go senden
+        n2g(
+            'subscribe:send', {
+            recipient : recipient
+            },
+            function(data){
+                if (data.status == 201){
+                    $('#form').html("<h2>Anmeldung erfolgreich!</h2>");
+                } else if (data.status == 200){
+                    if(data.value[0].result.error.recipients.invalid.length){
+                        $('#form').html("<h2>Ihre E-Mail Adresse ist nicht valide.</h2>");
+                    }
+                    //Bereits angemeldet
+                    $('#form').html("<h2>Du bist bereits angemdeldet!</h2>");
+                }else {
+                    $('#form').html("<h2>Es ist ein Fehler aufgetreten!</h2>");
+                }
+            },
+            function(data) {
+                $('#form').html("<h2>Es ist ein Fehler aufgetreten!</h2>");
+            }
+        );
+            });
+        });
+</script>
 </html>
 
