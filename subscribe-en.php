@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $option2 = $_POST['checkbox2'];
 
     $subject = "Ein neuer Kunde hat den Newsletter abonniert";
-    $subject2 = "Sie haben sich für die Anleitungen entschieden";
+    $subject2 = "You opted for the installation instructions";
 	$message = "
 	<html>
 		<head>
@@ -409,24 +409,24 @@ if (isset($_POST['submit'])) {
 <body>
     <div id="form">
         <form id="nl2go_form" action="https://jdisc.eu/subscribe-de.php" method="post">
-            <input type="text" class="form__input" name="first_name" placeholder="Vorname" required="" />
+            <input type="text" class="form__input" name="first_name" placeholder="First Name" required="" />
             <br>
             <br>
-            <input type="text" class="form__input" name="last_name" placeholder="Nachname" required="" />
+            <input type="text" class="form__input" name="last_name" placeholder="Last Name" required="" />
             <br>
             <br>
             <input type="email" class="form__input" name="email" placeholder="E-Mail" required="" />
             <br>
-            <label class="container">JDisc Newsletter (quartalsweise)
+            <label class="container">JDisc Newsletter (quarterly)
                 <input type="checkbox" id="checkbox1" value="checkbox1" name="checkbox1" >
                 <span class="checkmark"></span>
             </label>
-            <label class="container">JDisc Release Notes Newsletter (alle 1-2 Wochen)
+            <label class="container">JDisc Release Notes Newsletter (weekly releases)
                 <input type="checkbox" id="checkbox2" value="checkbox2" name="checkbox2">
                 <span class="checkmark"></span>
             </label>
             <br>
-                <input class="button-17" type="submit" name='submit' value="ABONNIEREN">
+                <input class="button-17" type="submit" name='submit' value="SUBSCRIBE">
         </form>
     </div>
     <script id="n2g_script">
