@@ -201,19 +201,13 @@ if (isset($_POST['submit'])) {
     ";
             // Always set content-type when sending HTML email
             $headers2 = "MIME-Version: 1.0" . "\r\n";
-            $headers2 .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                    
+            $headers2 .= "Content-type:text/html;charset=UTF-8" . "\r\n";              
             // More headers
             $headers2 .= 'From: <webmaster@example.com>' . "\r\n";
             //$headers2 .= 'Cc: info@jdisc.eu' . "\r\n";
             $to2 = $from;
             mail($to2,$subject2,$message2,$headers2);
     }
-
-
-
-
-
 }
 ?>
 <!DOCTYPE html>
@@ -222,7 +216,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <title></title>
     <style>
         *,
@@ -408,11 +402,11 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <div id="form">
-        <form id="nl2go_form" action="https://jdisc.eu/subscribe-de.php" method="post">
-            <input type="text" class="form__input" name="first_name" placeholder="Vorname" required="" />
+        <form id="nl2go_form" action="https://jdisc.eu/subscribe-de.php" onsubmit="mailsender();" method="post">
+            <input type="text" class="form__input" name="first_name" placeholder="First Name" required="" />
             <br>
             <br>
-            <input type="text" class="form__input" name="last_name" placeholder="Nachname" required="" />
+            <input type="text" class="form__input" name="last_name" placeholder="Last Name" required="" />
             <br>
             <br>
             <input type="email" class="form__input" name="email" placeholder="E-Mail" required="" />
@@ -426,7 +420,7 @@ if (isset($_POST['submit'])) {
                 <span class="checkmark"></span>
             </label>
             <br>
-                <input class="button-17" type="submit" name='submit' value="ABONNIEREN">
+            <input class="button-17" type="submit" name='submit' value="ANMELDEN">
         </form>
     </div>
     <script id="n2g_script">
@@ -454,23 +448,29 @@ if (isset($_POST['submit'])) {
                 },
                 function(data){
                     if (data.status == 201){
-                        $('#form').html("<h2>Anmeldung erfolgreich!</h2>");
+                        $('#form').html("<h2>Vielen Dank für die Anmeldung. Wir haben Ihnen eine E-Mail mit einem Bestätigungslink zugeschickt.</h2>");
                     } else if (data.status == 200){
                         if(data.value[0].result.error.recipients.invalid.length){
                             $('#form').html("<h2>Ihre E-Mail Adresse ist nicht valide.</h2>");
                         }
                         //Bereits angemeldet
-                        $('#form').html("<h2>Du bist bereits angemdeldet!</h2>");
+                        $('#form').html("<h2>Sie sind bereits angemeldet.</h2>");
                     }else {
-                        $('#form').html("<h2>Es ist ein Fehler aufgetreten!</h2>");
+                        $('#form').html("<h2>Leider ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Daten.</h2>");
                     }
                 },
                 function(data) {
-                    $('#form').html("<h2>Es ist ein Fehler aufgetreten!</h2>");
+                    $('#form').html("<h2>Leider ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Daten.</h2>");
                 }
             );
                 });
             });
+        </script>
+        <script>
+            function mailsender() {
+                alert('Form submitted!');
+                return false;
+            }
         </script>
 </body>
 </html>
