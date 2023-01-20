@@ -82,4 +82,26 @@
         $msg = "Error, could not be Sent!";
     }
     //////////////////////////////////////////////////////////////////
+
+    //MAIL TO CUSTOMER//
+    $subjectcustomer = "Thank you for your interest";
+    $messagecustomer = file_get_contents('https://jdisc.eu/newsletter/de/procustomermail-de.php?fname=$fname');
+    /////////////// MAIL TO EMPLOYEE///////////////////////////////////
+    // Always set content-type when sending HTML email
+    $headerscustomer = "MIME-Version: 1.0" . "\r\n";
+    $headerscustomer .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    // More headers
+    $headerscustomer .= 'From: <webmaster@example.com>' . "\r\n";
+    //$headerscustomer .= 'Cc: info@jdisc.eu' . "\r\n";
+    $to = $from;
+    //mail($to,$subject,$message,$headers);
+    if(mail($to,$subjectcustomer,$messagecustomer,$headerscustomer))
+    {
+        $msg = "Your quotation has been sent successful!. Please check your email for the quotation summary. We will contact you as soon as possible!";
+    }
+    else
+    {
+        $msg = "Error, could not be Sent!";
+    }
+    //////////////////////////////////////////////////////////////////
 ?>
