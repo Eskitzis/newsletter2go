@@ -212,35 +212,51 @@
         .button-17:disabled {
         box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
         }
+        .divnext {
+            display: inline-block;
+            padding: 17px;
+        }
     </style>
 </head>
 <body>
 <div id="form">
     <form id="nl2go_form" action=""  method="post">
-            <input type="text" class="form__input" id="one" name="first_name" placeholder="First Name*" required=""/>
-            <br>
-            <br>
-            <input type="text" class="form__input" id="two" name="last_name" placeholder="Last Name*" required=""/>
-            <br>
-            <br>
-            <input type="email" class="form__input" id="three" name="email" placeholder="E-Mail*" required=""/>
-            <br>
-            <br>
-            <input type="text" class="form__input" id="four" name="company" placeholder="Company"/>
-            <br>
-            <br>
-            <input type="text" class="form__input" id="five" name="telephone" placeholder="Telephone"/>
-            <br>
-            <label class="container">Newsletter (quarterly newsletter)
-                <input type="checkbox" id="checkbox1" value="checkbox1" name="checkbox1" >
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Build Newsletter (with release notes for each build)
-                <input type="checkbox" id="checkbox2" value="checkbox2" name="checkbox2">
-                <span class="checkmark"></span>
-            </label>
-            <br>
-                <input class="button-17" type="submit" name='submit' value="SUBMIT">
+        <div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="one" name="first_name" placeholder="First Name*" required=""/>
+            </div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="two" name="last_name" placeholder="Last Name*" required=""/>
+            </div>
+        </div>
+        <div>
+            <div class="divnext">
+                <input type="email" class="form__input" id="three" name="email" placeholder="E-Mail*" required=""/>
+            </div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="four" name="company" placeholder="Company"/>
+            </div>  
+        </div>
+        <div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="five" name="telephone" placeholder="Telephone"/>
+            </div>       
+        </div>
+        <div>
+            <div class="divnext">
+                <label class="container">Newsletter (quarterly newsletter)
+                    <input type="checkbox" id="checkbox1" value="checkbox1" name="checkbox1" >
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">Build Newsletter (with release notes for each build)
+                    <input type="checkbox" id="checkbox2" value="checkbox2" name="checkbox2">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+        <div class="divnext">
+            <input class="button-17" type="submit" name='submit' value="SUBMIT">
+        </div>
     </form>
 </div>
 </body>

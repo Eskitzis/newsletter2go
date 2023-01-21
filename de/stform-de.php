@@ -44,7 +44,7 @@
 
         body {
         height: 100vh;
-            width: 100%;
+        width: 100%;
         background: #0f2027; /* fallback for old browsers */
         background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
         display: flex;
@@ -68,7 +68,7 @@
         font-family: 'Roboto', sans-serif;
         color: #333;
         font-size: 1.2rem;
-            margin: 0 auto;
+        margin: 0 auto;
         padding: 1.5rem 2rem;
         border-radius: 0.2rem;
         background-color: rgb(255, 255, 255);
@@ -212,35 +212,51 @@
         .button-17:disabled {
         box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
         }
+        .divnext {
+            display: inline-block;
+            padding: 17px;
+        }
     </style>
 </head>
 <body>
 <div id="form">
     <form id="nl2go_form" action=""  method="post">
-            <input type="text" class="form__input" id="one" name="first_name" placeholder="Vorname" required=""/>
-            <br>
-            <br>
-            <input type="text" class="form__input" id="two" name="last_name" placeholder="Nachname" required=""/>
-            <br>
-            <br>
-            <input type="email" class="form__input" id="three" name="email" placeholder="E-Mail" required=""/>
-            <br>
-            <br>
-            <input type="text" class="form__input" id="four" name="company" placeholder="Unternehmen"/>
-            <br>
-            <br>
-            <input type="text" class="form__input" id="five" name="telephone" placeholder="Telefonnummer"/>
-            <br>
-            <label class="container">JDisc Newsletter (quartalsweise)
-                <input type="checkbox" id="checkbox1" value="checkbox1" name="checkbox1" >
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">JDisc Release Notes Newsletter (alle 1-2 Wochen)
-                <input type="checkbox" id="checkbox2" value="checkbox2" name="checkbox2">
-                <span class="checkmark"></span>
-            </label>
-            <br>
-                <input class="button-17" type="submit" name='submit' value="ABSCHICKEN">
+        <div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="one" name="first_name" placeholder="Vorname*" required=""/>
+            </div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="two" name="last_name" placeholder="Nachname*" required=""/>
+            </div>
+        </div>
+        <div>
+            <div class="divnext">
+                <input type="email" class="form__input" id="three" name="email" placeholder="E-Mail*" required=""/>
+            </div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="four" name="company" placeholder="Unternehmen"/>
+            </div>  
+        </div>
+        <div>
+            <div class="divnext">
+                <input type="text" class="form__input" id="five" name="telephone" placeholder="Telefonnummer"/>
+            </div>       
+        </div>
+        <div>
+            <div class="divnext">
+                <label class="container">JDisc Newsletter (quartalsweise)
+                    <input type="checkbox" id="checkbox1" value="checkbox1" name="checkbox1" >
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">JDisc Release Notes Newsletter (alle 1-2 Wochen)
+                    <input type="checkbox" id="checkbox2" value="checkbox2" name="checkbox2">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+        <div class="divnext">
+            <input class="button-17" type="submit" name='submit' value="ABSCHICKEN">
+        </div>
     </form>
 </div>
 </body>

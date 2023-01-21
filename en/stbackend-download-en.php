@@ -97,6 +97,7 @@
     //mail($to,$subject,$message,$headers);
     if(mail($to,$subjectcustomer,$messagecustomer,$headerscustomer))
     {
+        header("Location: https://jdisc.eu/starter-edition-useful-tips", true, 301);
         $msg = "Your quotation has been sent successful!. Please check your email for the quotation summary. We will contact you as soon as possible!";
     }
     else
