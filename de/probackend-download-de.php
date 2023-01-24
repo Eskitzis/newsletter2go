@@ -106,3 +106,6 @@
     }
     //////////////////////////////////////////////////////////////////
 ?>
+
+
+<meta http-equiv="refresh" content="3; URL=https://jdisc.eu/de/professional-edition-useful-tips-de"/>
